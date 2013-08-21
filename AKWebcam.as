@@ -61,7 +61,6 @@ package {
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 
-
 			this._hookExternalCalls();
 
 			// Stage video
@@ -105,7 +104,7 @@ package {
 			{
 				try
 				{
-					ExternalInterface.addCallback("sendToSWF", _receivedFromJs);
+					ExternalInterface.addCallback("swfCall", _swfCall);
 				}
 				catch (error:Error)
 				{
@@ -122,7 +121,7 @@ package {
 		 * Javascript interface
 		 * Allow JS to call AS method
 		 **/
-		private function _receivedFromJs(calling:String, params:Object):void
+		private function _swfCall(calling:String, params:Object):void
 		{
  			if(this.hasOwnProperty(calling))
  				this[calling].apply(null, [params]);
@@ -137,7 +136,8 @@ package {
 			};
 			if(value != null)
 				event.value = value;
-			ExternalInterface.call('setTimeout', "$(document).trigger('"+fVars['eventListener']+"', "+JSON.stringify(event)+")", 10);
+
+			ExternalInterface.call(fVars['eventListener'], event);
 		}
 
 		private function _snapShot():ByteArray
@@ -168,7 +168,7 @@ package {
 		private function _completeHandler(event:Event):void
 		{
 			var loader:URLLoader = URLLoader(event.target);
-			this._dispatchEvent('upload-success', {result: JSON.parse(loader.data)});
+			this._dispatchEvent('upload_success', JSON.parse(loader.data));
 		}
 	}
 }

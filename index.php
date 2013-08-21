@@ -3,7 +3,7 @@ if(isset($_FILES['uploadFile']))
 {
 	move_uploaded_file($_FILES['uploadFile']['tmp_name'], './uploaded.jpg');
 	header('Content-Type: application/json');
-	echo json_encode(array('upload' => true));
+	echo json_encode(array('er' => "1\n2"));
 	exit;
 }
 ?><html>
@@ -11,13 +11,12 @@ if(isset($_FILES['uploadFile']))
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-var webcam;
-var camParams = {
+var webcam = {
+	link: null,
 	swf: 'AKWebcam.swf' + '?' + (new Date().getTime()) // remove timestamp for production
 	, placeholder: 'camera'
 	, flasVars: {
-		eventListener: 'camEventListener',
-
+		eventListener: 'webcam.listener',
 		movieWidth: 320,
 		movieHeight: 240,
 
@@ -32,7 +31,7 @@ var camParams = {
 		id: 'AKWebcamPicture'
 	}
 	, swfobjectCallback: function(event){
-		webcam = event.ref;
+		webcam.link = event.ref;
 	}
 	, shootParams: {
 		target: 'index.php',
@@ -43,19 +42,24 @@ var camParams = {
 			returnType: 'json'
 		}
 	}
+	, listener: function(event){
+		// prevent Flash freezing
+		if(!event['dispatch'])
+		{
+			event['dispatch'] = true;
+			setTimeout(function(){webcam.listener(event)}, 10);
+		}
+		else
+		{
+			console.log('dispatched event', event.name);
+		}
+	}
 };
 $(function(){
-	$(document).on(camParams.flasVars.eventListener, function(e, event){
-		switch(event.name)
-		{
-			default:
-				console.log(event.name, event);
-		}
-	})
-	.on('click', '.shoot', function(){
-		webcam.sendToSWF('capture', camParams.shootParams);
+	$(document).on('click', '.shoot', function(){
+		webcam.link.swfCall('capture', webcam.shootParams);
 	});
-	swfobject.embedSWF(camParams.swf, camParams.placeholder, "100%", "100%", "9.0.0", false, camParams.flasVars, camParams.movieParams, camParams.attrs, camParams.swfobjectCallback);
+	swfobject.embedSWF(webcam.swf, webcam.placeholder, "100%", "100%", "9.0.0", false, webcam.flasVars, webcam.movieParams, webcam.attrs, webcam.swfobjectCallback);
 });
 </script>
 <style type="text/css">
