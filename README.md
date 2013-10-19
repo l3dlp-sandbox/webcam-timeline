@@ -1,6 +1,12 @@
 ## WebCamTimeline 1.1
 
-Flash/AS3 Webcam + JS/Jquery Interface controls
+*   Flash/AS3 Webcam
+*   JS/Jquery Interface controls
+*   PHP Screenshots (as Jpeg files)
+
+
+
+---
 
 To compile, use your Flex SDK:
 
@@ -9,8 +15,6 @@ To compile, use your Flex SDK:
 or
 
 > <http://www.adobe.com/devnet/flex/flex-sdk-download.html>
-
----
 
 And simply run:
 
