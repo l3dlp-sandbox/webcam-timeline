@@ -6,14 +6,11 @@
 
 
 
----
+===
 
-To compile, use your Flex SDK:
+To compile the AS3 code, use one of the recent Flex SDK:
 
 > <http://flex.apache.org/>
-
-or
-
 > <http://www.adobe.com/devnet/flex/flex-sdk-download.html>
 
 And simply run:
@@ -23,6 +20,4 @@ And simply run:
 
 	
 ===
-*based on the AKWebcam repos:*
-https://github.com/arsonik/AKWebcam
-*by Florian Morello*
+*based on the* [AKWebcam](https://github.com/arsonik/AKWebcam) *repository by* [arsonik](https://github.com/arsonik)
