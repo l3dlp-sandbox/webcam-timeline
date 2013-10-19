@@ -23,6 +23,6 @@ And simply run:
 
 	
 ===
-based on the AKWebcam repos:
+*based on the AKWebcam repos:*
 https://github.com/arsonik/AKWebcam
-by Florian Morello
+*by Florian Morello*
