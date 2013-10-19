@@ -1,8 +1,9 @@
 /**
 * AKWebcam
-* @author Florian Morello
-* @version 1.0
+* @author Florian Morello, L3DLP
+* @version 1.1
 */
+
 package {
 
 	import flash.display.Sprite;

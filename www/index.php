@@ -1,11 +1,18 @@
 <?php
-if(isset($_FILES['uploadFile']))
-{
-	move_uploaded_file($_FILES['uploadFile']['tmp_name'], './uploaded-'.date('YmdHis').'.jpg');
+
+/**
+* AKWebcam
+* @author Florian Morello, L3DLP
+* @version 1.1
+*/
+
+if(isset($_FILES['uploadFile'])) {
+	move_uploaded_file($_FILES['uploadFile']['tmp_name'], './pics/uploaded-'.date('YmdHis').'.jpg');
 	header('Content-Type: application/json');
 	echo json_encode(array('er' => "1\n2"));
 	exit;
 }
+
 ?><html>
 <head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
