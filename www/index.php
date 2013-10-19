@@ -21,7 +21,7 @@ if(isset($_FILES['uploadFile'])) {
 <script type="text/javascript">
 var webcam = {
 	link: null,
-	swf: 'AKWebcam.swf' + '?' + (new Date().getTime()) // remove timestamp for production
+	swf: 'webshots.swf' + '?' + (new Date().getTime()) // remove timestamp for production
 	, placeholder: 'camera'
 	, flasVars: {
 		eventListener: 'webcam.listener',
@@ -36,7 +36,7 @@ var webcam = {
 		allowscriptaccess: "always"
 	}
 	, attrs: {
-		id: 'AKWebcamPicture'
+		id: 'webshotsPicture'
 	}
 	, swfobjectCallback: function(event){
 		webcam.link = event.ref;

@@ -1,2 +1,2 @@
 @echo off
-c:\flex\bin\amxmlc AKWebcam.as
+c:\flex\bin\amxmlc webshots.as

@@ -42,7 +42,7 @@ package {
 
 	flash.system.Security.allowDomain('*');
 
-	public class AKWebcam extends Sprite
+	public class webshots extends Sprite
 	{
 		public var fVars:Object;
 		// Stage video
@@ -52,7 +52,7 @@ package {
 		// Webcam
 		public var cam:Camera;
 
-		function AKWebcam()
+		function webshots()
 		{
 			// store externals flash vars
 			fVars = LoaderInfo(this.root.loaderInfo).parameters;
@@ -158,7 +158,7 @@ package {
 			// Add Fields
 			multiPartRequest.addFormFields(params.fields);
 			// Add Picture
-			multiPartRequest.addFile(params.fileInputName, "AKWebcam.jpg", "image/jpeg", this._snapShot());
+			multiPartRequest.addFile(params.fileInputName, "webshots.jpg", "image/jpeg", this._snapShot());
 			// Add ending boundary
 			multiPartRequest.commitData();
 
