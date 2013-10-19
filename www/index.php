@@ -8,7 +8,7 @@
 */
 
 if(isset($_FILES['uploadFile'])) {
-	move_uploaded_file($_FILES['uploadFile']['tmp_name'], './pics/uploaded-'.date('YmdHis').'.jpg');
+	move_uploaded_file($_FILES['uploadFile']['tmp_name'], './pics/'.date('Ymd-His').'.jpg');
 	header('Content-Type: application/json');
 	echo json_encode(array('er' => "1\n2"));
 	exit;
