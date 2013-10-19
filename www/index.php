@@ -1,8 +1,9 @@
 <?php
 
 /**
-* AKWebcam
-* @author Florian Morello, L3DLP
+* WebCamTimeline
+* @author L3DLP
+* @author Florian Morello (AKWebcam - https://github.com/arsonik/AKWebcam)
 * @version 1.1
 */
 
