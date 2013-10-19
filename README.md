@@ -1,4 +1,4 @@
-## WebCamTimeline 1.1
+# WebCamTimeline 1.1
 
 *   Flash/AS3 Webcam
 *   JS/Jquery Interface controls
@@ -8,6 +8,8 @@
 
 ===
 
+### AS3 Webshots
+
 To compile the AS3 code, use one of the recent Flex SDK:
 
 > <http://flex.apache.org/>
@@ -16,9 +18,13 @@ To compile the AS3 code, use one of the recent Flex SDK:
 
 And simply run:
 
-    /YourFlexSDK/bin/amxmlc AKWebcam.as
+    /YourFlexSDK/bin/amxmlc webshots.as
 
 
 	
 ===
-*based on the* [AKWebcam](https://github.com/arsonik/AKWebcam) *repository by* [arsonik](https://github.com/arsonik)
+### Credits
+
+*   [jQuery](http://jquery.org)
+*   [AKWebcam](https://github.com/arsonik/AKWebcam) *repository by* [arsonik](https://github.com/arsonik)
+
